@@ -37,7 +37,7 @@ const (
 func init() {
 	gopath := os.Getenv("GOPATH")
 	cublasLoc := path.Join(gopath, "src/gorgonia.org/cu/blas")
-	gonumLoc := path.Join(gopath, "src/github.com/gonum/blas")
+	gonumLoc := path.Join(gopath, "src/gonum.org/v1/gonum/blas")
 	documentation = path.Join(gonumLoc, "/native")
 	target = path.Join(cublasLoc, "blas.go")
 	targetHeader = path.Join(cublasLoc, "batch.h")

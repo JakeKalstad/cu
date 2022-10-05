@@ -1,6 +1,7 @@
 package t2cudnn
 
 import (
+	"fmt"
 	"testing"
 
 	"gorgonia.org/tensor"
@@ -14,7 +15,8 @@ func TestDescribe(t *testing.T) {
 	}
 	t.Logf("%v", desc)
 
-	T2 := tensor.New(tensor.WithShape(2, 3), tensor.Of(tensor.Float32))
+	T2 := tensor.New(tensor.WithShape(2), tensor.Of(tensor.Float32))
+	fmt.Println(T2.Shape())
 	_, err = Describe(T2)
 	if err == nil {
 		t.Errorf("Expected an error when a tensor < 4D is passed in")

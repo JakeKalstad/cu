@@ -1,6 +1,6 @@
 # cublas #
 
-Package `cublas` implements a Go API for CUDA's cuBLAS. It matches the [gonum/blas](https://github.com/gonum/blas) interface. 
+Package `cublas` implements a Go API for CUDA's cuBLAS. It matches the [gonum/blas](https://gonum.org/v1/gonum/blas) interface. 
 
 # How To Use # 
 

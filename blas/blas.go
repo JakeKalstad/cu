@@ -257,7 +257,9 @@ func (impl *Standard) Ztrmm(s blas.Side, ul blas.Uplo, tA blas.Transpose, d blas
 // Generated cases ...
 
 // Snrm2 computes the Euclidean norm of a vector,
-//  sqrt(\sum_i x[i] * x[i]).
+//
+//	sqrt(\sum_i x[i] * x[i]).
+//
 // This function returns 0 if incX is negative.
 func (impl *Standard) Snrm2(n int, x []float32, incX int) (retVal float32) {
 	// declared at cublasgen.h:137:17 enum CUBLAS_STATUS { ... } cublasSnrm2 ...
@@ -285,7 +287,9 @@ func (impl *Standard) Snrm2(n int, x []float32, incX int) (retVal float32) {
 }
 
 // Dnrm2 computes the Euclidean norm of a vector,
-//  sqrt(\sum_i x[i] * x[i]).
+//
+//	sqrt(\sum_i x[i] * x[i]).
+//
 // This function returns 0 if incX is negative.
 func (impl *Standard) Dnrm2(n int, x []float64, incX int) (retVal float64) {
 	// declared at cublasgen.h:143:17 enum CUBLAS_STATUS { ... } cublasDnrm2 ...
@@ -363,7 +367,8 @@ func (impl *Standard) Dznrm2(n int, x []complex128, incX int) (retVal float64) {
 }
 
 // Sdot computes the dot product of the two vectors
-//  \sum_i x[i]*y[i]
+//
+//	\sum_i x[i]*y[i]
 func (impl *Standard) Sdot(n int, x []float32, incX int, y []float32, incY int) (retVal float32) {
 	// declared at cublasgen.h:186:17 enum CUBLAS_STATUS { ... } cublasSdot ...
 	if impl.e != nil {
@@ -393,7 +398,8 @@ func (impl *Standard) Sdot(n int, x []float32, incX int, y []float32, incY int) 
 }
 
 // Ddot computes the dot product of the two vectors
-//  \sum_i x[i]*y[i]
+//
+//	\sum_i x[i]*y[i]
 func (impl *Standard) Ddot(n int, x []float64, incX int, y []float64, incY int) (retVal float64) {
 	// declared at cublasgen.h:194:17 enum CUBLAS_STATUS { ... } cublasDdot ...
 	if impl.e != nil {
@@ -423,7 +429,9 @@ func (impl *Standard) Ddot(n int, x []float64, incX int, y []float64, incY int) 
 }
 
 // Sscal scales x by alpha.
-//  x[i] *= alpha
+//
+//	x[i] *= alpha
+//
 // Sscal has no effect if incX < 0.
 func (impl *Standard) Sscal(n int, alpha float32, x []float32, incX int) {
 	// declared at cublasgen.h:245:17 enum CUBLAS_STATUS { ... } cublasSscal ...
@@ -450,7 +458,9 @@ func (impl *Standard) Sscal(n int, alpha float32, x []float32, incX int) {
 }
 
 // Dscal scales x by alpha.
-//  x[i] *= alpha
+//
+//	x[i] *= alpha
+//
 // Dscal has no effect if incX < 0.
 func (impl *Standard) Dscal(n int, alpha float64, x []float64, incX int) {
 	// declared at cublasgen.h:251:17 enum CUBLAS_STATUS { ... } cublasDscal ...
@@ -570,7 +580,8 @@ func (impl *Standard) Zdscal(n int, alpha float64, x []complex128, incX int) {
 }
 
 // Saxpy adds alpha times x to y
-//  y[i] += alpha * x[i] for all i
+//
+//	y[i] += alpha * x[i] for all i
 func (impl *Standard) Saxpy(n int, alpha float32, x []float32, incX int, y []float32, incY int) {
 	// declared at cublasgen.h:296:17 enum CUBLAS_STATUS { ... } cublasSaxpy ...
 	if impl.e != nil {
@@ -599,7 +610,8 @@ func (impl *Standard) Saxpy(n int, alpha float32, x []float32, incX int, y []flo
 }
 
 // Daxpy adds alpha times x to y
-//  y[i] += alpha * x[i] for all i
+//
+//	y[i] += alpha * x[i] for all i
 func (impl *Standard) Daxpy(n int, alpha float64, x []float64, incX int, y []float64, incY int) {
 	// declared at cublasgen.h:304:17 enum CUBLAS_STATUS { ... } cublasDaxpy ...
 	if impl.e != nil {
@@ -682,7 +694,8 @@ func (impl *Standard) Zaxpy(n int, alpha complex128, x []complex128, incX int, y
 }
 
 // Scopy copies the elements of x into the elements of y.
-//  y[i] = x[i] for all i
+//
+//	y[i] = x[i] for all i
 func (impl *Standard) Scopy(n int, x []float32, incX int, y []float32, incY int) {
 	// declared at cublasgen.h:328:17 enum CUBLAS_STATUS { ... } cublasScopy ...
 	if impl.e != nil {
@@ -711,7 +724,8 @@ func (impl *Standard) Scopy(n int, x []float32, incX int, y []float32, incY int)
 }
 
 // Dcopy copies the elements of x into the elements of y.
-//  y[i] = x[i] for all i
+//
+//	y[i] = x[i] for all i
 func (impl *Standard) Dcopy(n int, x []float64, incX int, y []float64, incY int) {
 	// declared at cublasgen.h:335:17 enum CUBLAS_STATUS { ... } cublasDcopy ...
 	if impl.e != nil {
@@ -794,7 +808,8 @@ func (impl *Standard) Zcopy(n int, x []complex128, incX int, y []complex128, inc
 }
 
 // Sswap exchanges the elements of two vectors.
-//  x[i], y[i] = y[i], x[i] for all i
+//
+//	x[i], y[i] = y[i], x[i] for all i
 func (impl *Standard) Sswap(n int, x []float32, incX int, y []float32, incY int) {
 	// declared at cublasgen.h:356:17 enum CUBLAS_STATUS { ... } cublasSswap ...
 	if impl.e != nil {
@@ -823,7 +838,8 @@ func (impl *Standard) Sswap(n int, x []float32, incX int, y []float32, incY int)
 }
 
 // Dswap exchanges the elements of two vectors.
-//  x[i], y[i] = y[i], x[i] for all i
+//
+//	x[i], y[i] = y[i], x[i] for all i
 func (impl *Standard) Dswap(n int, x []float64, incX int, y []float64, incY int) {
 	// declared at cublasgen.h:363:17 enum CUBLAS_STATUS { ... } cublasDswap ...
 	if impl.e != nil {
@@ -1132,7 +1148,9 @@ func (impl *Standard) Izamin(n int, x []complex128, incX int) (retVal int) {
 }
 
 // Sasum computes the sum of the absolute values of the elements of x.
-//  \sum_i |x[i]|
+//
+//	\sum_i |x[i]|
+//
 // Sasum returns 0 if incX is negative.
 func (impl *Standard) Sasum(n int, x []float32, incX int) (retVal float32) {
 	// declared at cublasgen.h:432:17 enum CUBLAS_STATUS { ... } cublasSasum ...
@@ -1160,7 +1178,9 @@ func (impl *Standard) Sasum(n int, x []float32, incX int) (retVal float32) {
 }
 
 // Dasum computes the sum of the absolute values of the elements of x.
-//  \sum_i |x[i]|
+//
+//	\sum_i |x[i]|
+//
 // Dasum returns 0 if incX is negative.
 func (impl *Standard) Dasum(n int, x []float64, incX int) (retVal float64) {
 	// declared at cublasgen.h:438:17 enum CUBLAS_STATUS { ... } cublasDasum ...
@@ -1238,8 +1258,9 @@ func (impl *Standard) Dzasum(n int, x []complex128, incX int) (retVal float64) {
 }
 
 // Srot applies a plane transformation.
-//  x[i] = c * x[i] + s * y[i]
-//  y[i] = c * y[i] - s * x[i]
+//
+//	x[i] = c * x[i] + s * y[i]
+//	y[i] = c * y[i] - s * x[i]
 func (impl *Standard) Srot(n int, x []float32, incX int, y []float32, incY int, cScalar, sScalar float32) {
 	// declared at cublasgen.h:456:17 enum CUBLAS_STATUS { ... } cublasSrot ...
 	if impl.e != nil {
@@ -1268,8 +1289,9 @@ func (impl *Standard) Srot(n int, x []float32, incX int, y []float32, incY int, 
 }
 
 // Drot applies a plane transformation.
-//  x[i] = c * x[i] + s * y[i]
-//  y[i] = c * y[i] - s * x[i]
+//
+//	x[i] = c * x[i] + s * y[i]
+//	y[i] = c * y[i] - s * x[i]
 func (impl *Standard) Drot(n int, x []float64, incX int, y []float64, incY int, cScalar, sScalar float64) {
 	// declared at cublasgen.h:465:17 enum CUBLAS_STATUS { ... } cublasDrot ...
 	if impl.e != nil {
@@ -1352,8 +1374,10 @@ func (impl *Standard) Zrot(n int, x []complex128, incX int, y []complex128, incY
 }
 
 // Sgemv computes
-//  y = alpha * a * x + beta * y if tA = blas.NoTrans
-//  y = alpha * A^T * x + beta * y if tA = blas.Trans or blas.ConjTrans
+//
+//	y = alpha * a * x + beta * y if tA = blas.NoTrans
+//	y = alpha * A^T * x + beta * y if tA = blas.Trans or blas.ConjTrans
+//
 // where A is an m×n dense matrix, x and y are vectors, and alpha is a scalar.
 func (impl *Standard) Sgemv(tA blas.Transpose, m, n int, alpha float32, a []float32, lda int, x []float32, incX int, beta float32, y []float32, incY int) {
 	// declared at cublasgen.h:567:17 enum CUBLAS_STATUS { ... } cublasSgemv ...
@@ -1380,8 +1404,10 @@ func (impl *Standard) Sgemv(tA blas.Transpose, m, n int, alpha float32, a []floa
 }
 
 // Dgemv computes
-//  y = alpha * a * x + beta * y if tA = blas.NoTrans
-//  y = alpha * A^T * x + beta * y if tA = blas.Trans or blas.ConjTrans
+//
+//	y = alpha * a * x + beta * y if tA = blas.NoTrans
+//	y = alpha * A^T * x + beta * y if tA = blas.Trans or blas.ConjTrans
+//
 // where A is an m×n dense matrix, x and y are vectors, and alpha is a scalar.
 func (impl *Standard) Dgemv(tA blas.Transpose, m, n int, alpha float64, a []float64, lda int, x []float64, incX int, beta float64, y []float64, incY int) {
 	// declared at cublasgen.h:580:17 enum CUBLAS_STATUS { ... } cublasDgemv ...
@@ -1456,8 +1482,10 @@ func (impl *Standard) Zgemv(tA blas.Transpose, m, n int, alpha complex128, a []c
 }
 
 // Sgbmv computes
-//  y = alpha * A * x + beta * y if tA == blas.NoTrans
-//  y = alpha * A^T * x + beta * y if tA == blas.Trans or blas.ConjTrans
+//
+//	y = alpha * A * x + beta * y if tA == blas.NoTrans
+//	y = alpha * A^T * x + beta * y if tA == blas.Trans or blas.ConjTrans
+//
 // where a is an m×n band matrix kL subdiagonals and kU super-diagonals, and
 // m and n refer to the size of the full dense matrix it represents.
 // x and y are vectors, and alpha and beta are scalars.
@@ -1486,8 +1514,10 @@ func (impl *Standard) Sgbmv(tA blas.Transpose, m, n, kl, ku int, alpha float32, 
 }
 
 // Dgbmv computes
-//  y = alpha * A * x + beta * y if tA == blas.NoTrans
-//  y = alpha * A^T * x + beta * y if tA == blas.Trans or blas.ConjTrans
+//
+//	y = alpha * A * x + beta * y if tA == blas.NoTrans
+//	y = alpha * A^T * x + beta * y if tA == blas.Trans or blas.ConjTrans
+//
 // where a is an m×n band matrix kL subdiagonals and kU super-diagonals, and
 // m and n refer to the size of the full dense matrix it represents.
 // x and y are vectors, and alpha and beta are scalars.
@@ -1564,8 +1594,10 @@ func (impl *Standard) Zgbmv(tA blas.Transpose, m, n, kl, ku int, alpha complex12
 }
 
 // Strmv computes
-//  x = A * x if tA == blas.NoTrans
-//  x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
+//	x = A * x if tA == blas.NoTrans
+//	x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
 // A is an n×n Triangular matrix and x is a vector.
 func (impl *Standard) Strmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int, a []float32, lda int, x []float32, incX int) {
 	// declared at cublasgen.h:680:17 enum CUBLAS_STATUS { ... } cublasStrmv ...
@@ -1589,8 +1621,10 @@ func (impl *Standard) Strmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Dtrmv computes
-//  x = A * x if tA == blas.NoTrans
-//  x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
+//	x = A * x if tA == blas.NoTrans
+//	x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
 // A is an n×n Triangular matrix and x is a vector.
 func (impl *Standard) Dtrmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int, a []float64, lda int, x []float64, incX int) {
 	// declared at cublasgen.h:690:17 enum CUBLAS_STATUS { ... } cublasDtrmv ...
@@ -1656,8 +1690,10 @@ func (impl *Standard) Ztrmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Stbmv computes
-//  x = A * x if tA == blas.NoTrans
-//  x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
+//	x = A * x if tA == blas.NoTrans
+//	x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
 // where A is an n×n triangular banded matrix with k diagonals, and x is a vector.
 func (impl *Standard) Stbmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n, k int, a []float32, lda int, x []float32, incX int) {
 	// declared at cublasgen.h:721:17 enum CUBLAS_STATUS { ... } cublasStbmv ...
@@ -1684,8 +1720,10 @@ func (impl *Standard) Stbmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n, k i
 }
 
 // Dtbmv computes
-//  x = A * x if tA == blas.NoTrans
-//  x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
+//	x = A * x if tA == blas.NoTrans
+//	x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
 // where A is an n×n triangular banded matrix with k diagonals, and x is a vector.
 func (impl *Standard) Dtbmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n, k int, a []float64, lda int, x []float64, incX int) {
 	// declared at cublasgen.h:732:17 enum CUBLAS_STATUS { ... } cublasDtbmv ...
@@ -1760,8 +1798,10 @@ func (impl *Standard) Ztbmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n, k i
 }
 
 // Stpmv computes
-//  x = A * x if tA == blas.NoTrans
-//  x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
+//	x = A * x if tA == blas.NoTrans
+//	x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
 // where A is an n×n unit triangular matrix in packed format, and x is a vector.
 func (impl *Standard) Stpmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int, aP, x []float32, incX int) {
 	// declared at cublasgen.h:766:17 enum CUBLAS_STATUS { ... } cublasStpmv ...
@@ -1788,8 +1828,10 @@ func (impl *Standard) Stpmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Dtpmv computes
-//  x = A * x if tA == blas.NoTrans
-//  x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
+//	x = A * x if tA == blas.NoTrans
+//	x = A^T * x if tA == blas.Trans or blas.ConjTrans
+//
 // where A is an n×n unit triangular matrix in packed format, and x is a vector.
 func (impl *Standard) Dtpmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int, aP, x []float64, incX int) {
 	// declared at cublasgen.h:775:17 enum CUBLAS_STATUS { ... } cublasDtpmv ...
@@ -1864,8 +1906,10 @@ func (impl *Standard) Ztpmv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Strsv solves
-//  A * x = b if tA == blas.NoTrans
-//  A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
+//	A * x = b if tA == blas.NoTrans
+//	A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
 // A is an n×n triangular matrix and x is a vector.
 // At entry to the function, x contains the values of b, and the result is
 // stored in place into x.
@@ -1894,8 +1938,10 @@ func (impl *Standard) Strsv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Dtrsv solves
-//  A * x = b if tA == blas.NoTrans
-//  A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
+//	A * x = b if tA == blas.NoTrans
+//	A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
 // A is an n×n triangular matrix and x is a vector.
 // At entry to the function, x contains the values of b, and the result is
 // stored in place into x.
@@ -1966,8 +2012,10 @@ func (impl *Standard) Ztrsv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Stpsv solves
-//  A * x = b if tA == blas.NoTrans
-//  A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
+//	A * x = b if tA == blas.NoTrans
+//	A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
 // where A is an n×n triangular matrix in packed format and x is a vector.
 // At entry to the function, x contains the values of b, and the result is
 // stored in place into x.
@@ -1999,8 +2047,10 @@ func (impl *Standard) Stpsv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Dtpsv solves
-//  A * x = b if tA == blas.NoTrans
-//  A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
+//	A * x = b if tA == blas.NoTrans
+//	A^T * x = b if tA == blas.Trans or blas.ConjTrans
+//
 // where A is an n×n triangular matrix in packed format and x is a vector.
 // At entry to the function, x contains the values of b, and the result is
 // stored in place into x.
@@ -2080,7 +2130,9 @@ func (impl *Standard) Ztpsv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n int,
 }
 
 // Stbsv solves
-//  A * x = b
+//
+//	A * x = b
+//
 // where A is an n×n triangular banded matrix with k diagonals in packed format,
 // and x is a vector.
 // At entry to the function, x contains the values of b, and the result is
@@ -2113,7 +2165,9 @@ func (impl *Standard) Stbsv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n, k i
 }
 
 // Dtbsv solves
-//  A * x = b
+//
+//	A * x = b
+//
 // where A is an n×n triangular banded matrix with k diagonals in packed format,
 // and x is a vector.
 // At entry to the function, x contains the values of b, and the result is
@@ -2194,7 +2248,9 @@ func (impl *Standard) Ztbsv(ul blas.Uplo, tA blas.Transpose, d blas.Diag, n, k i
 }
 
 // Ssymv computes
-//    y = alpha * A * x + beta * y,
+//
+//	y = alpha * A * x + beta * y,
+//
 // where a is an n×n symmetric matrix, x and y are vectors, and alpha and
 // beta are scalars.
 func (impl *Standard) Ssymv(ul blas.Uplo, n int, alpha float32, a []float32, lda int, x []float32, incX int, beta float32, y []float32, incY int) {
@@ -2222,7 +2278,9 @@ func (impl *Standard) Ssymv(ul blas.Uplo, n int, alpha float32, a []float32, lda
 }
 
 // Dsymv computes
-//    y = alpha * A * x + beta * y,
+//
+//	y = alpha * A * x + beta * y,
+//
 // where a is an n×n symmetric matrix, x and y are vectors, and alpha and
 // beta are scalars.
 func (impl *Standard) Dsymv(ul blas.Uplo, n int, alpha float64, a []float64, lda int, x []float64, incX int, beta float64, y []float64, incY int) {
@@ -2346,7 +2404,9 @@ func (impl *Standard) Zhemv(ul blas.Uplo, n int, alpha complex128, a []complex12
 }
 
 // Ssbmv performs
-//  y = alpha * A * x + beta * y
+//
+//	y = alpha * A * x + beta * y
+//
 // where A is an n×n symmetric banded matrix, x and y are vectors, and alpha
 // and beta are scalars.
 func (impl *Standard) Ssbmv(ul blas.Uplo, n, k int, alpha float32, a []float32, lda int, x []float32, incX int, beta float32, y []float32, incY int) {
@@ -2377,7 +2437,9 @@ func (impl *Standard) Ssbmv(ul blas.Uplo, n, k int, alpha float32, a []float32, 
 }
 
 // Dsbmv performs
-//  y = alpha * A * x + beta * y
+//
+//	y = alpha * A * x + beta * y
+//
 // where A is an n×n symmetric banded matrix, x and y are vectors, and alpha
 // and beta are scalars.
 func (impl *Standard) Dsbmv(ul blas.Uplo, n, k int, alpha float64, a []float64, lda int, x []float64, incX int, beta float64, y []float64, incY int) {
@@ -2462,7 +2524,9 @@ func (impl *Standard) Zhbmv(ul blas.Uplo, n, k int, alpha complex128, a []comple
 }
 
 // Sspmv performs
-//    y = alpha * A * x + beta * y,
+//
+//	y = alpha * A * x + beta * y,
+//
 // where A is an n×n symmetric matrix in packed format, x and y are vectors
 // and alpha and beta are scalars.
 func (impl *Standard) Sspmv(ul blas.Uplo, n int, alpha float32, aP, x []float32, incX int, beta float32, y []float32, incY int) {
@@ -2493,7 +2557,9 @@ func (impl *Standard) Sspmv(ul blas.Uplo, n int, alpha float32, aP, x []float32,
 }
 
 // Dspmv performs
-//    y = alpha * A * x + beta * y,
+//
+//	y = alpha * A * x + beta * y,
+//
 // where A is an n×n symmetric matrix in packed format, x and y are vectors
 // and alpha and beta are scalars.
 func (impl *Standard) Dspmv(ul blas.Uplo, n int, alpha float64, aP, x []float64, incX int, beta float64, y []float64, incY int) {
@@ -2578,7 +2644,9 @@ func (impl *Standard) Zhpmv(ul blas.Uplo, n int, alpha complex128, aP, x []compl
 }
 
 // Sger performs the rank-one operation
-//  A += alpha * x * y^T
+//
+//	A += alpha * x * y^T
+//
 // where A is an m×n dense matrix, x and y are vectors, and alpha is a scalar.
 func (impl *Standard) Sger(m, n int, alpha float32, x []float32, incX int, y []float32, incY int, a []float32, lda int) {
 	// declared at cublasgen.h:1096:17 enum CUBLAS_STATUS { ... } cublasSger ...
@@ -2608,7 +2676,9 @@ func (impl *Standard) Sger(m, n int, alpha float32, x []float32, incX int, y []f
 }
 
 // Dger performs the rank-one operation
-//  A += alpha * x * y^T
+//
+//	A += alpha * x * y^T
+//
 // where A is an m×n dense matrix, x and y are vectors, and alpha is a scalar.
 func (impl *Standard) Dger(m, n int, alpha float64, x []float64, incX int, y []float64, incY int, a []float64, lda int) {
 	// declared at cublasgen.h:1107:17 enum CUBLAS_STATUS { ... } cublasDger ...
@@ -2746,7 +2816,9 @@ func (impl *Standard) Zgerc(m, n int, alpha complex128, x []complex128, incX int
 }
 
 // Ssyr performs the rank-one update
-//  a += alpha * x * x^T
+//
+//	a += alpha * x * x^T
+//
 // where a is an n×n symmetric matrix, and x is a vector.
 func (impl *Standard) Ssyr(ul blas.Uplo, n int, alpha float32, x []float32, incX int, a []float32, lda int) {
 	// declared at cublasgen.h:1163:17 enum CUBLAS_STATUS { ... } cublasSsyr ...
@@ -2767,7 +2839,9 @@ func (impl *Standard) Ssyr(ul blas.Uplo, n int, alpha float32, x []float32, incX
 }
 
 // Dsyr performs the rank-one update
-//  a += alpha * x * x^T
+//
+//	a += alpha * x * x^T
+//
 // where a is an n×n symmetric matrix, and x is a vector.
 func (impl *Standard) Dsyr(ul blas.Uplo, n int, alpha float64, x []float64, incX int, a []float64, lda int) {
 	// declared at cublasgen.h:1172:17 enum CUBLAS_STATUS { ... } cublasDsyr ...
@@ -2860,7 +2934,9 @@ func (impl *Standard) Zher(ul blas.Uplo, n int, alpha float64, x []complex128, i
 }
 
 // Sspr computes the rank-one operation
-//  a += alpha * x * x^T
+//
+//	a += alpha * x * x^T
+//
 // where a is an n×n symmetric matrix in packed format, x is a vector, and
 // alpha is a scalar.
 func (impl *Standard) Sspr(ul blas.Uplo, n int, alpha float32, x []float32, incX int, aP []float32) {
@@ -2885,7 +2961,9 @@ func (impl *Standard) Sspr(ul blas.Uplo, n int, alpha float32, x []float32, incX
 }
 
 // Dspr computes the rank-one operation
-//  a += alpha * x * x^T
+//
+//	a += alpha * x * x^T
+//
 // where a is an n×n symmetric matrix in packed format, x is a vector, and
 // alpha is a scalar.
 func (impl *Standard) Dspr(ul blas.Uplo, n int, alpha float64, x []float64, incX int, aP []float64) {
@@ -2952,7 +3030,9 @@ func (impl *Standard) Zhpr(ul blas.Uplo, n int, alpha float64, x []complex128, i
 }
 
 // Ssyr2 performs the symmetric rank-two update
-//  A += alpha * x * y^T + alpha * y * x^T
+//
+//	A += alpha * x * y^T + alpha * y * x^T
+//
 // where A is a symmetric n×n matrix, x and y are vectors, and alpha is a scalar.
 func (impl *Standard) Ssyr2(ul blas.Uplo, n int, alpha float32, x []float32, incX int, y []float32, incY int, a []float32, lda int) {
 	// declared at cublasgen.h:1251:17 enum CUBLAS_STATUS { ... } cublasSsyr2 ...
@@ -2979,7 +3059,9 @@ func (impl *Standard) Ssyr2(ul blas.Uplo, n int, alpha float32, x []float32, inc
 }
 
 // Dsyr2 performs the symmetric rank-two update
-//  A += alpha * x * y^T + alpha * y * x^T
+//
+//	A += alpha * x * y^T + alpha * y * x^T
+//
 // where A is a symmetric n×n matrix, x and y are vectors, and alpha is a scalar.
 func (impl *Standard) Dsyr2(ul blas.Uplo, n int, alpha float64, x []float64, incX int, y []float64, incY int, a []float64, lda int) {
 	// declared at cublasgen.h:1262:17 enum CUBLAS_STATUS { ... } cublasDsyr2 ...
@@ -3102,7 +3184,9 @@ func (impl *Standard) Zher2(ul blas.Uplo, n int, alpha complex128, x []complex12
 }
 
 // Sspr2 performs the symmetric rank-2 update
-//  A += alpha * x * y^T + alpha * y * x^T,
+//
+//	A += alpha * x * y^T + alpha * y * x^T,
+//
 // where A is an n×n symmetric matrix in packed format, x and y are vectors,
 // and alpha is a scalar.
 func (impl *Standard) Sspr2(ul blas.Uplo, n int, alpha float32, x []float32, incX int, y []float32, incY int, aP []float32) {
@@ -3133,7 +3217,9 @@ func (impl *Standard) Sspr2(ul blas.Uplo, n int, alpha float32, x []float32, inc
 }
 
 // Dspr2 performs the symmetric rank-2 update
-//  A += alpha * x * y^T + alpha * y * x^T,
+//
+//	A += alpha * x * y^T + alpha * y * x^T,
+//
 // where A is an n×n symmetric matrix in packed format, x and y are vectors,
 // and alpha is a scalar.
 func (impl *Standard) Dspr2(ul blas.Uplo, n int, alpha float64, x []float64, incX int, y []float64, incY int, aP []float64) {
@@ -3218,7 +3304,9 @@ func (impl *Standard) Zhpr2(ul blas.Uplo, n int, alpha complex128, x []complex12
 }
 
 // Sgemm computes
-//  C = beta * C + alpha * A * B,
+//
+//	C = beta * C + alpha * A * B,
+//
 // where A, B, and C are dense matrices, and alpha and beta are scalars.
 // tA and tB specify whether A or B are transposed.
 func (impl *Standard) Sgemm(tA, tB blas.Transpose, m, n, k int, alpha float32, a []float32, lda int, b []float32, ldb int, beta float32, c []float32, ldc int) {
@@ -3246,7 +3334,9 @@ func (impl *Standard) Sgemm(tA, tB blas.Transpose, m, n, k int, alpha float32, a
 }
 
 // Dgemm computes
-//  C = beta * C + alpha * A * B,
+//
+//	C = beta * C + alpha * A * B,
+//
 // where A, B, and C are dense matrices, and alpha and beta are scalars.
 // tA and tB specify whether A or B are transposed.
 func (impl *Standard) Dgemm(tA, tB blas.Transpose, m, n, k int, alpha float64, a []float64, lda int, b []float64, ldb int, beta float64, c []float64, ldc int) {
@@ -3370,7 +3460,9 @@ func (impl *Standard) Zgemm3m(tA, tB blas.Transpose, m, n, k int, alpha complex1
 }
 
 // Ssyrk performs the symmetric rank-k operation
-//  C = alpha * A * A^T + beta*C
+//
+//	C = alpha * A * A^T + beta*C
+//
 // C is an n×n symmetric matrix. A is an n×k matrix if tA == blas.NoTrans, and
 // a k×n matrix otherwise. alpha and beta are scalars.
 func (impl *Standard) Ssyrk(ul blas.Uplo, t blas.Transpose, n, k int, alpha float32, a []float32, lda int, beta float32, c []float32, ldc int) {
@@ -3404,7 +3496,9 @@ func (impl *Standard) Ssyrk(ul blas.Uplo, t blas.Transpose, n, k int, alpha floa
 }
 
 // Dsyrk performs the symmetric rank-k operation
-//  C = alpha * A * A^T + beta*C
+//
+//	C = alpha * A * A^T + beta*C
+//
 // C is an n×n symmetric matrix. A is an n×k matrix if tA == blas.NoTrans, and
 // a k×n matrix otherwise. alpha and beta are scalars.
 func (impl *Standard) Dsyrk(ul blas.Uplo, t blas.Transpose, n, k int, alpha float64, a []float64, lda int, beta float64, c []float64, ldc int) {
@@ -3558,7 +3652,9 @@ func (impl *Standard) Zherk(ul blas.Uplo, t blas.Transpose, n, k int, alpha floa
 }
 
 // Ssyr2k performs the symmetric rank 2k operation
-//  C = alpha * A * B^T + alpha * B * A^T + beta * C
+//
+//	C = alpha * A * B^T + alpha * B * A^T + beta * C
+//
 // where C is an n×n symmetric matrix. A and B are n×k matrices if
 // tA == NoTrans and k×n otherwise. alpha and beta are scalars.
 func (impl *Standard) Ssyr2k(ul blas.Uplo, t blas.Transpose, n, k int, alpha float32, a []float32, lda int, b []float32, ldb int, beta float32, c []float32, ldc int) {
@@ -3595,7 +3691,9 @@ func (impl *Standard) Ssyr2k(ul blas.Uplo, t blas.Transpose, n, k int, alpha flo
 }
 
 // Dsyr2k performs the symmetric rank 2k operation
-//  C = alpha * A * B^T + alpha * B * A^T + beta * C
+//
+//	C = alpha * A * B^T + alpha * B * A^T + beta * C
+//
 // where C is an n×n symmetric matrix. A and B are n×k matrices if
 // tA == NoTrans and k×n otherwise. alpha and beta are scalars.
 func (impl *Standard) Dsyr2k(ul blas.Uplo, t blas.Transpose, n, k int, alpha float64, a []float64, lda int, b []float64, ldb int, beta float64, c []float64, ldc int) {
@@ -3872,8 +3970,10 @@ func (impl *Standard) Zherkx(ul blas.Uplo, t blas.Transpose, n, k int, alpha com
 }
 
 // Ssymm performs one of
-//  C = alpha * A * B + beta * C, if side == blas.Left,
-//  C = alpha * B * A + beta * C, if side == blas.Right,
+//
+//	C = alpha * A * B + beta * C, if side == blas.Left,
+//	C = alpha * B * A + beta * C, if side == blas.Right,
+//
 // where A is an n×n or m×m symmetric matrix, B and C are m×n matrices, and alpha
 // is a scalar.
 func (impl *Standard) Ssymm(s blas.Side, ul blas.Uplo, m, n int, alpha float32, a []float32, lda int, b []float32, ldb int, beta float32, c []float32, ldc int) {
@@ -3907,8 +4007,10 @@ func (impl *Standard) Ssymm(s blas.Side, ul blas.Uplo, m, n int, alpha float32, 
 }
 
 // Dsymm performs one of
-//  C = alpha * A * B + beta * C, if side == blas.Left,
-//  C = alpha * B * A + beta * C, if side == blas.Right,
+//
+//	C = alpha * A * B + beta * C, if side == blas.Left,
+//	C = alpha * B * A + beta * C, if side == blas.Right,
+//
 // where A is an n×n or m×m symmetric matrix, B and C are m×n matrices, and alpha
 // is a scalar.
 func (impl *Standard) Dsymm(s blas.Side, ul blas.Uplo, m, n int, alpha float64, a []float64, lda int, b []float64, ldb int, beta float64, c []float64, ldc int) {
@@ -4062,10 +4164,12 @@ func (impl *Standard) Zhemm(s blas.Side, ul blas.Uplo, m, n int, alpha complex12
 }
 
 // Strsm solves
-//  A * X = alpha * B,   if tA == blas.NoTrans side == blas.Left,
-//  A^T * X = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Left,
-//  X * A = alpha * B,   if tA == blas.NoTrans side == blas.Right,
-//  X * A^T = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Right,
+//
+//	A * X = alpha * B,   if tA == blas.NoTrans side == blas.Left,
+//	A^T * X = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Left,
+//	X * A = alpha * B,   if tA == blas.NoTrans side == blas.Right,
+//	X * A^T = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Right,
+//
 // where A is an n×n or m×m triangular matrix, X is an m×n matrix, and alpha is a
 // scalar.
 //
@@ -4104,10 +4208,12 @@ func (impl *Standard) Strsm(s blas.Side, ul blas.Uplo, tA blas.Transpose, d blas
 }
 
 // Dtrsm solves
-//  A * X = alpha * B,   if tA == blas.NoTrans side == blas.Left,
-//  A^T * X = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Left,
-//  X * A = alpha * B,   if tA == blas.NoTrans side == blas.Right,
-//  X * A^T = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Right,
+//
+//	A * X = alpha * B,   if tA == blas.NoTrans side == blas.Left,
+//	A^T * X = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Left,
+//	X * A = alpha * B,   if tA == blas.NoTrans side == blas.Right,
+//	X * A^T = alpha * B, if tA == blas.Trans or blas.ConjTrans, and side == blas.Right,
+//
 // where A is an n×n or m×m triangular matrix, X is an m×n matrix, and alpha is a
 // scalar.
 //

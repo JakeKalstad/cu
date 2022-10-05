@@ -5,8 +5,8 @@ package cu
 //#cgo LDFLAGS:-lcuda
 //
 ////default location:
-//#cgo linux LDFLAGS:-L/usr/local/cuda/lib64 -L/usr/local/cuda/lib
-//#cgo linux CFLAGS: -I/usr/local/cuda/include
+//#cgo linux LDFLAGS:-L/usr/local/cuda-11.7/lib64 -L/usr/local/cuda-11.7/lib
+//#cgo linux CFLAGS: -I/usr/local/cuda-11.7/include
 //
 ////default location if not properly symlinked:
 //#cgo linux LDFLAGS:-L/usr/local/cuda-11.0/targets/x86_64-linux/lib
@@ -22,8 +22,8 @@ package cu
 //#cgo linux CFLAGS: -I/opt/cuda/include
 //
 ////Darwin:
-//#cgo darwin LDFLAGS:-L/usr/local/cuda/lib
-//#cgo darwin CFLAGS: -I/usr/local/cuda/include/
+//#cgo darwin LDFLAGS:-L/usr/local/cuda-11.7/lib
+//#cgo darwin CFLAGS: -I/usr/local/cuda-11.7/include/
 //
 ////WINDOWS:
 //#cgo windows LDFLAGS:-LC:/cuda/v5.0/lib/x64 -LC:/cuda/v5.5/lib/x64 -LC:/cuda/v6.0/lib/x64 -LC:/cuda/v6.5/lib/x64 -LC:/cuda/v7.0/lib/x64 -LC:/cuda/v8.0/lib/x64 -LC:/cuda/v9.0/x64
